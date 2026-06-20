@@ -29,6 +29,8 @@ class OpenAICompatiblePromptRunner:
                     {
                         "multiline": True,
                         "default": "You are a helpful assistant.",
+                        "dynamicPrompts": False,
+                        "placeholder": "System prompt",
                     },
                 ),
                 "input_text": (
@@ -36,6 +38,8 @@ class OpenAICompatiblePromptRunner:
                     {
                         "multiline": True,
                         "default": "",
+                        "dynamicPrompts": False,
+                        "placeholder": "Input text",
                     },
                 ),
                 "temperature": (
@@ -71,6 +75,8 @@ class OpenAICompatiblePromptRunner:
                     {
                         "multiline": True,
                         "default": "",
+                        "dynamicPrompts": False,
+                        "placeholder": "Generated output",
                     },
                 ),
             }
