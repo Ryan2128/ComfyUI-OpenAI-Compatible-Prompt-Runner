@@ -1,0 +1,18 @@
+[project]
+name = "openai-compatible-prompt-runner"
+description = "A ComfyUI custom node for running OpenAI-compatible chat completion APIs with user-defined system prompts."
+version = "0.1.0"
+license = { file = "LICENSE" }
+dependencies = [
+    "openai>=1.0.0",
+]
+
+[project.urls]
+Repository = "https://github.com/YOUR_USERNAME/ComfyUI-OpenAI-Compatible-Prompt-Runner"
+Documentation = "https://github.com/YOUR_USERNAME/ComfyUI-OpenAI-Compatible-Prompt-Runner#readme"
+"Bug Tracker" = "https://github.com/YOUR_USERNAME/ComfyUI-OpenAI-Compatible-Prompt-Runner/issues"
+
+[tool.comfy]
+PublisherId = "YOUR_PUBLISHER_ID"
+DisplayName = "OpenAI Compatible Prompt Runner"
+Icon = ""

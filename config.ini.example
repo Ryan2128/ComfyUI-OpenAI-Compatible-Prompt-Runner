@@ -1,0 +1,4 @@
+[API]
+api_url = https://api.deepseek.com
+api_key = sk-your-api-key
+model = deepseek-chat
