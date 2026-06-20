@@ -40,6 +40,50 @@ function removePromptHelperWidgets(node) {
   }
 }
 
+function removePromptAssistantDom(node) {
+  if (!node) {
+    return;
+  }
+
+  const nodeContainer = document.querySelector(`[data-node-id="${node.id}"]`);
+  const candidateRoots = new Set();
+
+  if (nodeContainer) {
+    candidateRoots.add(nodeContainer);
+  }
+
+  for (const widget of node.widgets ?? []) {
+    const element = widget?.element ?? widget?.inputEl;
+    if (!element) {
+      continue;
+    }
+
+    delete element._promptAssistantMounted;
+    delete element._promptAssistantWidgetKey;
+
+    candidateRoots.add(element.parentElement);
+    candidateRoots.add(element.closest?.(".dom-widget"));
+    candidateRoots.add(element.closest?.(".p-floatlabel"));
+  }
+
+  for (const root of candidateRoots) {
+    if (!root) {
+      continue;
+    }
+
+    root
+      .querySelectorAll?.(".assistant-container-common, .prompt-assistant-container")
+      .forEach((element) => element.remove());
+  }
+}
+
+function keepPromptAssistantHidden(node) {
+  removePromptAssistantDom(node);
+  setTimeout(() => removePromptAssistantDom(node), 0);
+  setTimeout(() => removePromptAssistantDom(node), 150);
+  setTimeout(() => removePromptAssistantDom(node), 600);
+}
+
 app.registerExtension({
   name: "OpenAICompatiblePromptRunner.OutputText",
   beforeRegisterNodeDef(nodeType, nodeData) {
@@ -55,6 +99,7 @@ app.registerExtension({
         removePromptHelperWidgets(this);
       }
 
+      keepPromptAssistantHidden(this);
       return widget;
     };
 
@@ -62,21 +107,35 @@ app.registerExtension({
     nodeType.prototype.onNodeCreated = function () {
       onNodeCreated?.apply(this, arguments);
       removePromptHelperWidgets(this);
-      setTimeout(() => removePromptHelperWidgets(this), 0);
-      setTimeout(() => removePromptHelperWidgets(this), 300);
+      keepPromptAssistantHidden(this);
+      setTimeout(() => {
+        removePromptHelperWidgets(this);
+        keepPromptAssistantHidden(this);
+      }, 300);
     };
 
     const onConfigure = nodeType.prototype.onConfigure;
     nodeType.prototype.onConfigure = function () {
       onConfigure?.apply(this, arguments);
       removePromptHelperWidgets(this);
-      setTimeout(() => removePromptHelperWidgets(this), 0);
+      keepPromptAssistantHidden(this);
+      setTimeout(() => {
+        removePromptHelperWidgets(this);
+        keepPromptAssistantHidden(this);
+      }, 0);
+    };
+
+    const onSelected = nodeType.prototype.onSelected;
+    nodeType.prototype.onSelected = function () {
+      onSelected?.apply(this, arguments);
+      keepPromptAssistantHidden(this);
     };
 
     const onExecuted = nodeType.prototype.onExecuted;
     nodeType.prototype.onExecuted = function (message) {
       onExecuted?.apply(this, arguments);
       removePromptHelperWidgets(this);
+      keepPromptAssistantHidden(this);
 
       if (!message?.output_text) {
         return;
