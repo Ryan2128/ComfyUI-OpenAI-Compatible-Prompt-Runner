@@ -15,7 +15,7 @@ Inputs:
 - `temperature`: Sampling temperature.
 - `max_tokens`: Maximum output token budget.
 - `timeout_seconds`: Request timeout.
-- `enabled`: When disabled, the node passes `input_text` through unchanged.
+- `enabled`: When disabled, the node returns the existing `output_text` value from the previous run. If `output_text` is empty, it falls back to `input_text`.
 - `output_text`: Read-only display area updated after execution.
 
 Output:

@@ -98,7 +98,8 @@ class OpenAICompatiblePromptRunner:
         output_text="",
     ):
         if not enabled:
-            return {"ui": {"output_text": [input_text]}, "result": (input_text,)}
+            cached_text = output_text if output_text.strip() else input_text
+            return {"ui": {"output_text": [cached_text]}, "result": (cached_text,)}
 
         settings = _read_config()
         api_url = settings["api_url"]
