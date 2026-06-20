@@ -79,7 +79,7 @@ Create five nodes and chain their text outputs:
 1. Short idea -> story development material for a 36-72 second short.
 2. Story development material -> script structured for 9 shots.
 3. Story development material + script -> exactly 9 storyboard shots.
-4. Story development material + script + storyboard -> exactly 9-panel, 3x3 storyboard image prompt.
+4. Story development material + script + storyboard -> exactly 9-panel, 3x3 storyboard image prompt in the provided character board style.
 5. Storyboard image prompt -> exactly 9 single-panel prompts, one line per panel.
 
 ## Publish to Comfy Registry

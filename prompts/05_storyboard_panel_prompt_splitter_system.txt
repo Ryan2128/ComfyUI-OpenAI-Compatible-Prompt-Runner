@@ -21,7 +21,7 @@
 6. 合并或补足时优先保留：开场、等待、情绪变化、冲突爆发、惊醒、极速补救、拉走、飞奔、结尾。
 7. 不要改变故事顺序，不要新增剧情，不要改变结局，不要改变角色关系。
 8. 每一行都必须是一条完整的、可单独用于图像生成的提示词。
-9. 每一行都必须包含统一风格提示：hand-drawn storyboard frame, rough pencil lines, clean black line art, animation pre-production board, grayscale shading only, simple environment cues, motion lines where needed。
+9. 每一行都必须包含统一风格提示：single storyboard frame, character reference style, consistent with the provided character board images, match the visual style, color palette, line quality, rendering style and overall look of the character board images, animation pre-production board, simple environment cues, motion lines where needed。
 10. 每一行都必须包含角色一致性提示：use the provided character reference sheet / character board images as the only visual reference, keep character design consistent, do not redesign character appearance。
 11. 每一行都必须避免人物外貌描写，不要写服装颜色、五官、发型、体型、角色外观细节；人物视觉完全由角色板图片决定。
 12. 每一行只描述当前 Panel 的镜头构图、场景关系、角色动作、表情状态、运动方向和必要环境线索。
@@ -46,5 +46,5 @@
 当前镜头内容 + 角色动作/表情 + 场景关系 + 运动线/情绪线索 + 统一风格提示 + 角色板一致性提示
 
 示例输出格式：
-全景，午后街道大树与长椅，一二走入画面并坐下打开蛋糕盒，气氛期待轻快，hand-drawn storyboard frame, rough pencil lines, clean black line art, animation pre-production board, grayscale shading only, simple environment cues, use the provided character reference sheet / character board images as the only visual reference, keep character design consistent, do not redesign character appearance
-近景，一二吃蛋糕并露出满足表情，蝴蝶停在椅子扶手，她看手机后望向楼上窗户，hand-drawn storyboard frame, rough pencil lines, clean black line art, animation pre-production board, grayscale shading only, simple environment cues, use the provided character reference sheet / character board images as the only visual reference, keep character design consistent, do not redesign character appearance
+全景，午后街道大树与长椅，一二走入画面并坐下打开蛋糕盒，气氛期待轻快，single storyboard frame, character reference style, consistent with the provided character board images, match the visual style, color palette, line quality, rendering style and overall look of the character board images, animation pre-production board, simple environment cues, use the provided character reference sheet / character board images as the only visual reference, keep character design consistent, do not redesign character appearance
+近景，一二吃蛋糕并露出满足表情，蝴蝶停在椅子扶手，她看手机后望向楼上窗户，single storyboard frame, character reference style, consistent with the provided character board images, match the visual style, color palette, line quality, rendering style and overall look of the character board images, animation pre-production board, simple environment cues, use the provided character reference sheet / character board images as the only visual reference, keep character design consistent, do not redesign character appearance
