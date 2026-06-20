@@ -72,6 +72,7 @@ The `prompts/` folder contains four system prompt templates:
 - `02_script_generation_system.txt`
 - `03_storyboard_generation_system.txt`
 - `04_handdrawn_storyboard_prompt_system.txt`
+- `05_storyboard_panel_prompt_splitter_system.txt`
 
 Create four nodes and chain their text outputs:
 
@@ -79,6 +80,7 @@ Create four nodes and chain their text outputs:
 2. Story development material -> script.
 3. Story development material + script -> storyboard.
 4. Story development material + script + storyboard -> hand-drawn storyboard image prompt.
+5. Storyboard image prompt -> one prompt per storyboard panel, one line per panel.
 
 ## Publish to Comfy Registry
 
