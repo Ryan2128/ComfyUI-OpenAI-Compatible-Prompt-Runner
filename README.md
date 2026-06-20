@@ -64,9 +64,9 @@ pip install -r requirements.txt
 
 Restart ComfyUI after installing.
 
-## Four-step workflow
+## Five-step workflow
 
-The `prompts/` folder contains four system prompt templates:
+The `prompts/` folder contains five system prompt templates:
 
 - `01_story_expansion_system.txt`
 - `02_script_generation_system.txt`
@@ -74,13 +74,13 @@ The `prompts/` folder contains four system prompt templates:
 - `04_handdrawn_storyboard_prompt_system.txt`
 - `05_storyboard_panel_prompt_splitter_system.txt`
 
-Create four nodes and chain their text outputs:
+Create five nodes and chain their text outputs:
 
-1. Short idea -> story development material.
-2. Story development material -> script.
-3. Story development material + script -> storyboard.
-4. Story development material + script + storyboard -> hand-drawn storyboard image prompt.
-5. Storyboard image prompt -> one prompt per storyboard panel, one line per panel.
+1. Short idea -> story development material for a 36-72 second short.
+2. Story development material -> script structured for 9 shots.
+3. Story development material + script -> exactly 9 storyboard shots.
+4. Story development material + script + storyboard -> exactly 9-panel, 3x3 storyboard image prompt.
+5. Storyboard image prompt -> exactly 9 single-panel prompts, one line per panel.
 
 ## Publish to Comfy Registry
 

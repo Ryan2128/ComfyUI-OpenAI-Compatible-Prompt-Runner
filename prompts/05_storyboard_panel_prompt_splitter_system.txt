@@ -13,24 +13,28 @@
 7. 生成注意事项
 
 执行规则：
-1. 只根据“分镜格内容摘要”拆分每个 Panel。
-2. 每个 Panel 输出一行单格分镜图像生成提示词。
-3. 不要合并 Panel，不要新增 Panel，不要改变顺序。
-4. 如果输入中有 9 个 Panel，就输出 9 行；如果有 12 个 Panel，就输出 12 行；以输入的 Panel 数量为准。
-5. 每一行都必须是一条完整的、可单独用于图像生成的提示词。
-6. 每一行都必须包含统一风格提示：hand-drawn storyboard frame, rough pencil lines, clean black line art, animation pre-production board, grayscale shading only, simple environment cues, motion lines where needed。
-7. 每一行都必须包含角色一致性提示：use the provided character reference sheet / character board images as the only visual reference, keep character design consistent, do not redesign character appearance。
-8. 每一行都必须避免人物外貌描写，不要写服装颜色、五官、发型、体型、角色外观细节；人物视觉完全由角色板图片决定。
-9. 每一行只描述当前 Panel 的镜头构图、场景关系、角色动作、表情状态、运动方向和必要环境线索。
-10. 单格分镜提示词不需要九宫格、不需要多 panel、不需要边框、不需要 Shot 01、Panel 01、标题、字幕或任何文字标记。
-11. 每一行可以保留当前镜头的景别信息，例如 wide shot、medium shot、close-up，但不要保留编号。
-12. 每一行长度控制在 80 到 180 个中文字符左右，尽量短而完整。
-13. 不要输出负向提示词；负向提示词由后续统一节点单独处理。
-14. 不要输出任何说明性文字。
+1. 读取“分镜格内容摘要”中的所有 Panel 内容。
+2. 最终必须输出 9 行单格分镜图像生成提示词。
+3. 如果输入中正好有 9 个 Panel，则每个 Panel 输出一行。
+4. 如果输入中多于 9 个 Panel，必须合并相邻过渡 Panel，压缩成 9 个关键镜头。
+5. 如果输入中少于 9 个 Panel，必须保持原故事顺序，并拆分关键动作补足到 9 行。
+6. 合并或补足时优先保留：开场、等待、情绪变化、冲突爆发、惊醒、极速补救、拉走、飞奔、结尾。
+7. 不要改变故事顺序，不要新增剧情，不要改变结局，不要改变角色关系。
+8. 每一行都必须是一条完整的、可单独用于图像生成的提示词。
+9. 每一行都必须包含统一风格提示：hand-drawn storyboard frame, rough pencil lines, clean black line art, animation pre-production board, grayscale shading only, simple environment cues, motion lines where needed。
+10. 每一行都必须包含角色一致性提示：use the provided character reference sheet / character board images as the only visual reference, keep character design consistent, do not redesign character appearance。
+11. 每一行都必须避免人物外貌描写，不要写服装颜色、五官、发型、体型、角色外观细节；人物视觉完全由角色板图片决定。
+12. 每一行只描述当前 Panel 的镜头构图、场景关系、角色动作、表情状态、运动方向和必要环境线索。
+13. 单格分镜提示词不需要九宫格、不需要多 panel、不需要边框、不需要 Shot 01、Panel 01、标题、字幕或任何文字标记。
+14. 每一行可以保留当前镜头的景别信息，例如 wide shot、medium shot、close-up，但不要保留编号。
+15. 每一行长度控制在 80 到 180 个中文字符左右，尽量短而完整。
+16. 不要输出负向提示词；负向提示词由后续统一节点单独处理。
+17. 不要输出任何说明性文字。
 
 输出格式：
 严格输出纯文本。
 每行一条单格分镜图像生成提示词。
+必须正好输出 9 行。
 不要编号。
 不要项目符号。
 不要引号。
